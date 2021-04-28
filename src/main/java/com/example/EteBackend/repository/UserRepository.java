@@ -5,7 +5,6 @@ import com.example.EteBackend.model.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Repository
 public class UserRepository {
@@ -39,14 +38,6 @@ public class UserRepository {
         } catch (NoResultException e) {
             return null;
         }
-    }
-    public List<UserDetails> getAllPosts(Integer userID){
-        EntityManager em= entityManagerFactory.createEntityManager();
-        TypedQuery<UserDetails> query= em.createQuery("SELECT * from User u join fetch u.user u where u.id= :userid", UserDetails.class);
-        query.setParameter("userid",userID);
-        List<UserDetails> result=query.getResultList();
-
-        return result;
     }
 
 }

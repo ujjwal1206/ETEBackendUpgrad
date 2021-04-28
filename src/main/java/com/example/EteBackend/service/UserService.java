@@ -8,14 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-@Autowired
+    @Autowired
     UserRepository userRepository;
 
     public void registerUser(UserDetails newUser){
         userRepository.register(newUser);
-    }
-
-    public UserDetails getPost(Integer postId){
-        return (UserDetails) userRepository.getAllPosts(postId);
     }
 }
