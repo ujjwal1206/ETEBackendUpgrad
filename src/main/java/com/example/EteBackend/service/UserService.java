@@ -14,4 +14,8 @@ public class UserService {
     public void registerUser(UserDetails newUser){
         userRepository.register(newUser);
     }
+
+    public UserDetails getPost(Integer postId){
+        return (UserDetails) userRepository.getAllPosts(postId);
+    }
 }
